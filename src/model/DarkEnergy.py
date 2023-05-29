@@ -1,16 +1,10 @@
-"""
-Simple Model
-m = 1e-11
-phi_0 = 1e46 can be a good simulation
-"""
-
-
 import numpy as np
-
-m = 1e-11
+"""parameters for DarkEnergy model"""
+m = 1e-11 #potential parameter
+Lambda = 1e-120 #dark energy term
 
 def potential(phi):
-    return 0.5*m**2*phi**2
+    return 1/2*m**2*phi**2 + Lambda
 
 def nabla_potential(phi):
     return m**2*phi
