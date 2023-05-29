@@ -5,9 +5,9 @@ from ..model import model
 from ..ode import ode
 
 
-def show(ODE, show_potential=False, show_hubble=False,show_phi=False,show_phi_dot=False,show_phi_dot_dot=False, save=False, save_path="", savedpi=300):
-    Model = ODE.Model
-    y = ODE.y
+def show(ODE, show_potential=False, show_phi=False,show_phi_dot=False,show_phi_dot_dot=False, show_energy=False, save=False, save_path="", savedpi=300):
+    Model = model.Modeltype(ODE.Model)
+    y = np.array(ODE.y)
     a_ln = ODE.a_ln
     t = ODE.t
 
@@ -28,16 +28,24 @@ def show(ODE, show_potential=False, show_hubble=False,show_phi=False,show_phi_do
         plt.show()
 
     if show_phi_dot:
-        plt.plot(t,y[1], label="\dot{\phi}")
+        plt.plot(t,y[1], label="$\dot{\phi}$")
         plt.xlabel("Time")
         plt.ylabel("$\dot\phi$")
         plt.legend()
         plt.show()
 
     if show_phi_dot_dot:
-        plt.plot(t,y[2], label="\ddot{\phi}")
+        plt.plot(t,y[2], label="$\dot{\phi_t}$")
         plt.xlabel("Time")
         plt.ylabel("$\dot\phi_t$")
+        plt.legend()
+        plt.show()
+
+    if show_energy:
+        plt.plot(t, y[1]**2/2 ,color='b' ,label="Kinetic Energy")
+        plt.plot(t, Model.potential(y[0]),color='r', label="Potential Energy")
+        plt.xlabel("Time")
+        plt.ylabel("Energy")
         plt.legend()
         plt.show()
 

@@ -22,6 +22,7 @@ show_potential = config["PLOT"].getboolean("show_potential")
 show_phi = config["PLOT"].getboolean("show_phi")
 show_phi_dot = config["PLOT"].getboolean("show_phi_dot")
 show_phi_dot_dot = config["PLOT"].getboolean("show_phi_dot_dot")
+show_energy = config["PLOT"].getboolean("show_energy")
 Issave = config["PLOT"].getboolean("save")
 Savepath = config["PLOT"]["save_path"]
 #run
@@ -39,5 +40,6 @@ show.show(ODE,
           show_phi, 
           show_phi_dot, 
           show_phi_dot_dot, 
+          show_energy,
           Issave, 
           save_path=os.path.join(os.path.dirname(__file__),Savepath))
