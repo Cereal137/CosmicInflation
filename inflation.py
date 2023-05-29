@@ -25,11 +25,9 @@ show_phi_dot_dot = config["PLOT"].getboolean("show_phi_dot_dot")
 Issave = config["PLOT"].getboolean("save")
 Savepath = config["PLOT"]["save_path"]
 #run
-from src.model import model
 from src.ode import ode
 from src.plot import show
 
-#print(step,maximum)
 ODE = ode.ODE(model_name, 
               y0, 
               y_t0, 
