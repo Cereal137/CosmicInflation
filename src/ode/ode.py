@@ -7,6 +7,8 @@ class ODE:
         self.step = step
         self.maximum = maximum
         self.max_iteration = maximum/step
+        self.y0 = y0
+        self.y_t0 = y_t0
         self.y = [[y0],[y_t0],[]] #y, y_t, y_tt
         self.a_ln  = [[1],[]] #ln(a)
         self.t = [0] #time epoch

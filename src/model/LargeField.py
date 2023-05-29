@@ -1,6 +1,12 @@
 import numpy as np
-"""parameters for large-field model"""
-V0 = 1e-120 #potential parameter
+"""
+parameters for large-field model
+y0 = 1e47 
+y_t0 can be free
+V0= = 1e-118
+p = 4  can be a good choice
+"""
+V0 = 1e-118 #potential parameter
 p = 4 #power of the potential
 
 def potential(phi):

@@ -12,8 +12,8 @@ def show(ODE, show_potential=False, show_phi=False,show_phi_dot=False,show_phi_d
     t = ODE.t
 
     if show_potential:
-        phi = np.linspace(min(y[0]), max(y[0]), 100)
-        V = Model.potential(Model, phi)
+        phi = np.linspace(0, ODE.y0 , 100)
+        V = Model.potential(phi)
         plt.plot(phi, V, label="Potential")
         plt.xlabel("$\phi$")
         plt.ylabel("V($\phi$)")
@@ -59,10 +59,12 @@ def show(ODE, show_potential=False, show_phi=False,show_phi_dot=False,show_phi_d
             plt.savefig(os.path.join(save_path, Model + ".png"), dpi = savedpi)
             print("Save figure to " + save_path)
         else:
-            import shutil
-            shutil.rmtree(save_path)
-            print("Remove old figure in " + save_path)
-            os.makedirs(save_path)
-            plt.savefig(os.path.join(save_path, Model + ".png"), dpi = savedpi)
-            print("Save figure to " + save_path)
+            if not os.path.exists(os.path.join(save_path, ODE.Model + ".png")):
+                plt.savefig(os.path.join(save_path, ODE.Model + ".png"), dpi = savedpi)
+                print("Save figure to " + save_path)
+            else:
+                os.remove(os.path.join(save_path, ODE.Model + ".png"))
+                print("Remove old figure in " + save_path)
+                plt.savefig(os.path.join(save_path, ODE.Model + ".png"), dpi = savedpi)
+                print("Save figure to " + save_path)
     plt.show()

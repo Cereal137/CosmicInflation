@@ -1,7 +1,7 @@
 import numpy as np
 """parameters for DarkEnergy model"""
 m = 1e-11 #potential parameter
-Lambda = 1e-120 #dark energy term
+Lambda = 1e71 #dark energy term
 
 def potential(phi):
     return 1/2*m**2*phi**2 + Lambda
