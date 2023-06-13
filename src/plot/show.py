@@ -12,7 +12,7 @@ def show(ODE, show_potential=False, show_phi=False,show_phi_dot=False,show_phi_d
     t = ODE.t
 
     if show_potential:
-        phi = np.linspace(0, ODE.y0 , 100)
+        phi = np.linspace(-ODE.y0 , ODE.y0 , 200)
         V = Model.potential(phi)
         plt.plot(phi, V, label="Potential")
         plt.xlabel("$\phi$")
